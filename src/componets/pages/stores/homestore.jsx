@@ -1,26 +1,27 @@
 import axios from "axios";
 import { create } from "zustand";
 
-const API_Key = '69bv29xgmh1t0x9ccrnqgj74waasjb'
+const API_Key = 'b75a02282f2b4b77b72eab9bbcd88ce2';
 
-const homestore = create((set, get) => ({
+const homestore = create((set) => ({
     games: [],
-    trending: [],
-    query: '',
-    error: null,
 
-    setQuery (e) => {
-        set({ query: e.target.value });
-        get().fetchGames();
-    }
+    fetchGames: async () => {
+        const res = await axios.get(`https://api.rawg.io/api/games?key=${API_Key}`);
 
+        const games = res.data.results.map((game) => ({
+            id: game.id,
+            name: game.name,
+            background_image: game.background_image,
+            rating: game.rating,
+            released: game.released,
+        }));
 
-    const res = await axios.get('https://api.igdb.com/v4/{games}', {
-    headers: {
-        'Client_ID': 'blx0jcj934ddhtx33o3xlecoilwsly',
-        'client_secret': API_Key,
-        'Authorization': `Bearer`,
+        set({ games }); // Update the state with the fetched games
+
+       (console.log(res.data))// Return the data from the API response
     },
-}); 
+}));
 
+export default homestore;
 

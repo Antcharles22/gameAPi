@@ -1,8 +1,8 @@
 
 import React from 'react';
 import homestore from '../stores/homestore';
-import { Link } from 'react-router-dom';
 import Carousel from './carousel';
+import Nav from './Nav';
 
 export default function Home() {
   const store = homestore();
@@ -11,8 +11,15 @@ export default function Home() {
   }, []);
   
   return (
-    <div>
+    <>
+    <div className='home'>
+      <div className='carousel'>
       <Carousel />
+      </div>
+      <div className='navbar'>
+        <Nav />
+      </div>
     </div>
+     </>
   );
 }

@@ -15,9 +15,11 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
+/* carousel  */
 .carousel {
-  margin: 30px;
+
+  margin-left: 115px; // Adjust margin to account for the fixed navbar
+  margin-right: 15px; // Add margin to the right side
   position: relative;
   z-index: 1; // Ensure the carousel is visible below the navbar
 
@@ -34,16 +36,19 @@ body {
   }
 
   .slick-slide > div {
-    width: auto; // Set a fixed width for the container
+    width: 310px; // Set a fixed width for the container
     height: 350px; // Set a fixed height for the container
     display: flex;
+    margin: 0 15px; // Add margin around each slide
     flex-direction: column;
     justify-content: center; // Center content vertically
     align-items: center; // Center content horizontally
     overflow: visible; // Allow overflow for the image
-    margin-right: 10px; // Add space between slides
-    margin-left: 10px; // Add space between slides
+    margin: 0 16px !important; // Add margin around each slide
   }
+
+
+  
 
   a {
     display: flex; // Ensure the <a> tag behaves like a flex container
@@ -59,12 +64,11 @@ body {
   }
 
   img {
-    width: 360px; // Make the image fill the container's width
+    width: 100%; // Make the image fill the container's width
     height: 300px; // Maintain aspect ratio
-    object-fit: cover; // Ensure the image fits nicely
+    object-fit: cover; // Ensure the image covers the container without distortion
     transition: transform 0.3s ease-in-out; // Smooth scaling effect
-    margin-bottom: 20px; // Add space between the image and text
-
+    
     &:hover {
       transform: scale(1.1); // Scale the image to 110% on hover
     }
@@ -85,6 +89,9 @@ body {
   }
 }
 
+
+
+/* Navigation styles */
 .nav {
     position: fixed; // Fix the nav to the left side
     top: 0; // Align it to the top of the screen
@@ -96,7 +103,7 @@ body {
     display: flex;
     flex-direction: column; // Stack items vertically
     align-items: center; // Center items horizontally
-    padding: 20px; // Add padding inside the nav
+    padding: 15px; // Add padding inside the nav
     z-index: 10; // Ensure it stays above other elements
   }
   
@@ -122,7 +129,7 @@ body {
     font-size: 18px; // Adjust font size
     display: block; // Make the link take the full width
     text-align: center; // Center the text
-    padding: 10px; // Add padding for better clickability
+    padding: 10px 5px 10px 5px; // Add padding for better clickability
     border-radius: 5px; // Add rounded corners
     transition: background-color 0.3s ease; // Smooth hover effect
   }
@@ -130,3 +137,57 @@ body {
   .nav a:hover {
     background-color: #555; // Change background color on hover
   }
+
+  /* Search bar styles */
+  .search-bar {
+    top: 20px; // Position it 20px from the top
+    right: 20px; // Position it 20px from the right
+    background-color: #444; // Set a background color for the search bar
+    color: white; // Set text color
+    padding: 10px; // Add padding inside the search bar
+    border-radius: 5px; // Add rounded corners
+    z-index: 10; // Ensure it stays above other elements
+  } 
+
+ .search {
+    display: flex; // Use flexbox for layout
+    align-items: center; // Center items vertically
+    justify-content: center; // Center items horizontally
+    padding: 10px; // Add padding inside the search bar
+    border-radius: 5px; // Add rounded corners
+   
+  }
+
+  .search-bar h2 {
+  margin-bottom: 10px; // Space between h2 and the search bar
+  text-align: center;
+  }
+
+  .search input {
+    width: 200px; // Set a fixed width for the input field
+    padding: 5px; // Add padding inside the input field
+    border: none; // Remove default border
+    border-radius: 3px; // Add rounded corners to the input field
+    margin-right: 10px; // Add space between input and button
+  }
+
+  .search button {
+    padding: 5px 10px; // Add padding to the button
+    background-color: #555; // Set a background color for the button
+    color: white; // Set text color for the button
+    border: none; // Remove default border from the button
+    border-radius: 3px; // Add rounded corners to the button
+    cursor: pointer; // Change cursor to pointer on hover
+  }
+
+  .search button:hover {
+    background-color: #666; // Change background color on hover
+  }
+  .search input:focus {
+    outline: none; // Remove the default focus outline
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); // Add a subtle glow effect on focus
+  }
+  .search input::placeholder {
+    color: #ccc; // Set placeholder text color
+  }
+ 

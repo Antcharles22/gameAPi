@@ -5,6 +5,12 @@ const API_Key = 'b75a02282f2b4b77b72eab9bbcd88ce2';
 
 const homestore = create((set) => ({
     games: [],
+    query: '',
+
+
+
+    
+    setQuery: (query) => set({ query }), // Function to update the query state
 
     fetchGames: async () => {
         const res = await axios.get(`https://api.rawg.io/api/games?key=${API_Key}`);

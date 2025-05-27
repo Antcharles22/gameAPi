@@ -17,8 +17,11 @@ export default function Home() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5, // Number of slides visible at once
+    slidesToShow: 3.15, // Number of slides visible at once
     slidesToScroll: 1, // Number of slides to scroll at a time
+    swipeToSlide: true,    // <-- Add this
+    draggable: true, 
+    accessibility: true, // <-- Enable keyboard navigation  
     responsive: [
       {
         breakpoint: 768, // For smaller screens
@@ -33,7 +36,7 @@ export default function Home() {
             <div className='carousel'>
               <h1>Top Rated Games</h1>
         
-              <Slider {...settings}>
+              <Slider {...settings} tabIndex={0}>
                 {store.games.map((game) => (
                   <div key={game.id}>
                     <Link to={`/game/${game.id}`}>
@@ -46,7 +49,7 @@ export default function Home() {
                   </div>
                 ))}
               </Slider>
-              <p>Welcome to the home page!</p>
+              
             </div>
     )
   }

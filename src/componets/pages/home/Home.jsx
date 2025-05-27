@@ -19,6 +19,18 @@ export default function Home() {
       <div className='navbar'>
         <Nav />
       </div>
+      <div className='search-bar'>
+        <h2>Search for Games</h2>
+        <div className='search'>
+        <input
+          type="text"
+          placeholder="Search for games..."
+          value={store.query}
+          onChange={(e) => store.setQuery(e.target.value)}
+        />
+        </div>
+        </div>
+
     </div>
      </>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import homestore from '../stores/homestore';
+import homestore from '../../stores/homestore';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,7 +17,7 @@ export default function Home() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.15, // Number of slides visible at once
+    slidesToShow: 5.15, // Number of slides visible at once
     slidesToScroll: 1, // Number of slides to scroll at a time
     swipeToSlide: true,    // <-- Add this
     draggable: true, 
@@ -32,6 +32,7 @@ export default function Home() {
     ],
   };
     
+
     return (
             <div className='carousel'>
               <h1>Top Rated Games</h1>

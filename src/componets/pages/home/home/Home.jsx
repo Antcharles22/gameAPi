@@ -1,8 +1,9 @@
 
 import React from 'react';
-import homestore from '../stores/homestore';
+import homestore from '../../stores/homestore';
 import Carousel from './carousel';
 import Nav from './Nav';
+import ItemList from './itemList';
 
 export default function Home() {
   const store = homestore();
@@ -22,12 +23,19 @@ export default function Home() {
       <div className='search-bar'>
         <h2>Search for Games</h2>
         <div className='search'>
-        <input
-          type="text"
-          placeholder="Search for games..."
-          value={store.query}
-          onChange={(e) => store.setQuery(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Search for games..."
+            value={store.query}
+            onChange={(e) => store.setQuery(e.target.value)}
+          />
+          <header>search </header>
+          <div className='search-results'>
+            {store.games.map(game => (
+            <ItemList key={game.id} game={game}/>
+            ))}
+          </div>
+
         </div>
         </div>
 

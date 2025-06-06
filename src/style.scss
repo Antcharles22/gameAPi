@@ -36,7 +36,7 @@ body {
   }
 
   .slick-slide > div {
-    width: 310px; // Set a fixed width for the container
+    width: 310px  !important;// Set a fixed width for the container
     height: 350px; // Set a fixed height for the container
     display: flex;
     margin: 0 15px; // Add margin around each slide
@@ -44,7 +44,7 @@ body {
     justify-content: center; // Center content vertically
     align-items: center; // Center content horizontally
     overflow: visible; // Allow overflow for the image
-    margin: 0 16px !important; // Add margin around each slide
+    margin: 0 px !important; // Add margin around each slide
   }
 
 
@@ -142,7 +142,7 @@ body {
   .search-bar {
     top: 20px; // Position it 20px from the top
     right: 20px; // Position it 20px from the right
-    background-color: #444; // Set a background color for the search bar
+    
     color: white; // Set text color
     padding: 10px; // Add padding inside the search bar
     border-radius: 5px; // Add rounded corners
@@ -164,7 +164,7 @@ body {
   }
 
   .search input {
-    width: 200px; // Set a fixed width for the input field
+    width: 200px; // Set a fixed width for the input field 
     padding: 5px; // Add padding inside the input field
     border: none; // Remove default border
     border-radius: 3px; // Add rounded corners to the input field
@@ -173,7 +173,7 @@ body {
 
   .search button {
     padding: 5px 10px; // Add padding to the button
-    background-color: #555; // Set a background color for the button
+    background-color: #a75757; // Set a background color for the button
     color: white; // Set text color for the button
     border: none; // Remove default border from the button
     border-radius: 3px; // Add rounded corners to the button

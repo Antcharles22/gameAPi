@@ -38,6 +38,9 @@ const homestore = create((set, get) => ({
     }
     console.log("Games fetched:", get().games);
   }
+
+
+  
 }));
 
 

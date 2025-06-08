@@ -17,7 +17,7 @@ export default function Home() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5.15, // Number of slides visible at once
+    slidesToShow: 4.15, // Number of slides visible at once
     slidesToScroll: 1, // Number of slides to scroll at a time
     swipeToSlide: true,    // <-- Add this
     draggable: true, 

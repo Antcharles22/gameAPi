@@ -20,25 +20,24 @@ export default function Home() {
       <div className='navbar'>
         <Nav />
       </div>
-      <div className='search-bar'>
+
+      <div className='search'>
         <h2>Search for Games</h2>
-        <div className='search'>
+        <div className='search-bar'>
           <input
             type="text"
             placeholder="Search for games..."
             value={store.query}
             onChange={(e) => store.setQuery(e.target.value)}
           />
-          <header>search </header>
+         </div>
           <div className='search-results'>
             {store.games.map(game => (
             <ItemList key={game.id} game={game}/>
             ))}
-          </div>
-
+            </div>
+          
         </div>
-        </div>
-
     </div>
      </>
   );

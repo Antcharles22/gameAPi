@@ -15,6 +15,10 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+a {
+  color: inherit; // Inherit color from parent or set your preferred color
+  text-decoration: none; // Remove underline
+}
 
 .home {
   
@@ -52,7 +56,19 @@ body {
     width: 100%; // Make it responsive to the container's width
     max-width: 300px; // Limit the maximum width of each item
     transition: transform 0.3s ease-in-out; // Smooth scaling effect on hover
+    text-align: center;
+    text-decoration: none; // Remove underline from links
   } 
+
+  
+  .search-results {
+  display: grid; // Use grid layout for search results
+  grid-template-columns: repeat(3, 1fr); // 3 columns
+  gap: 20px; // Space between items
+  padding: 20px; // Padding around the search results
+  text-decoration: none; // Remove underline from links
+  }
+  
 }
 
 /* carousel  */

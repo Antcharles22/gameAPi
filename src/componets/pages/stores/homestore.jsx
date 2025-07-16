@@ -24,6 +24,8 @@ const homestore = create((set, get) => ({
         background_image: game.background_image,
         rating: game.rating,
         released: game.released,
+        genres: game.genres,         // <-- add this line
+        platforms: game.platforms,
       }));
       set({ carouselGames: games, error: null });
     } catch (error) {
@@ -44,6 +46,8 @@ const homestore = create((set, get) => ({
         background_image: game.background_image,
         rating: game.rating,
         released: game.released,
+        genres: game.genres,         // <-- add this line
+        platforms: game.platforms,
       }));
       set({ searchResults: games, error: null });
     } catch (error) {

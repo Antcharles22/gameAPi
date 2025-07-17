@@ -18,6 +18,7 @@ const homestore = create((set, get) => ({
     try {
       const url = `https://api.rawg.io/api/games?key=${API_Key}`;
       const res = await axios.get(url);
+       console.log(game.platforms?.map(p => p.platform?.slug));
       const games = res.data.results.map((game) => ({
         id: game.id,
         name: game.name,

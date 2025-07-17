@@ -23,7 +23,7 @@ export default function Home() {
       <div className='search'>
         <h2>Search for Games</h2>
         <div className='search-bar'>
-          <input
+          <input //search bar *//
             type="text"
             placeholder="Search for games..."
             value={store.query}

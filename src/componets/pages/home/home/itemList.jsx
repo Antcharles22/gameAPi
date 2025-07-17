@@ -1,22 +1,26 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaWindows , FaPlaystation , FaXbox, } from "react-icons/fa";
+
+
 
 // Platform icon map
 const platformIcons = {
-  pc: "💻",
-  playstation: "🎮",
-  xbox: "🟩",
-  nintendo: "🟥",
-  mac: "🍎",
+  pc: <FaWindows />,
+  playstation5: <FaPlaystation />,
+  "xbox-series-x": <FaXbox />,
+  "nintendo-switch": "N",
+  macos: "🍎", 
   linux: "🐧",
-  ios: "📱",
+  ios: "📱", // Use an emoji for iOS
   android: "🤖",
   web: "🌐",
 };
 
 export default function ItemList({ game }) {
   // Extract genre names
+   console.log(game.platforms?.map(p => p.platform?.slug));
   const genreNames = game.genres
     ? game.genres.map(g => g.name).join(', ')
     : 'N/A';
@@ -42,4 +46,6 @@ export default function ItemList({ game }) {
       </Link>
     </div>
   );
+
+ 
 }

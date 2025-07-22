@@ -1,36 +1,57 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaWindows , FaPlaystation , FaXbox, } from "react-icons/fa";
+import { FaWindows , FaPlaystation , FaXbox, FaAndroid, FaLinux } from "react-icons/fa";
+import { NintendoSwitchIcon, Iso, MacOs } from "../../svg";
 
 
 
-// Platform icon map
+// ...existing imports...
+
 const platformIcons = {
   pc: <FaWindows />,
-  playstation5: <FaPlaystation />,
-  "xbox-series-x": <FaXbox />,
-  "nintendo-switch": "N",
-  macos: "🍎", 
-  linux: "🐧",
-  ios: "📱", // Use an emoji for iOS
-  android: "🤖",
+  playstation: <FaPlaystation />,
+  xbox: <FaXbox />,
+  "nintendo-switch": <NintendoSwitchIcon />,
+  macos: <MacOs style={{ color: "#fff" }} />,
+  linux: <FaLinux />,
+  ios: <Iso style={{ color: "#fff" }} />,
+  android: <FaAndroid />,
   web: "🌐",
 };
+function getPlatformFamilies(platforms) {
+  const families = new Set();
+  platforms.forEach(p => {
+    const slug = p.platform?.slug;
+    if (slug?.includes("playstation") || slug === "ps-vita") {
+      families.add("playstation");
+    } else if (slug?.includes("xbox")) {
+      families.add("xbox");
+    } else {
+      families.add(slug);
+    }
+  });
+  return Array.from(families);
+}
 
+
+// FIX: Use getPlatformFamilies in your ItemList component
 export default function ItemList({ game }) {
-  // Extract genre names
-   console.log(game.platforms?.map(p => p.platform?.slug));
   const genreNames = game.genres
     ? game.genres.map(g => g.name).join(', ')
     : 'N/A';
 
-  // Extract platform icons
   const platformIconsList = game.platforms
-    ? game.platforms.map(p => {
-        const slug = p.platform?.slug;
+    ? getPlatformFamilies(game.platforms).map((slug, idx) => {
         const icon = platformIcons[slug] || "❓";
-        return <span key={slug} title={p.platform?.name}>{icon}</span>;
+        return <span
+          key={slug}
+          title={slug}
+           style={{ padding: "0 2px", display: "inline-block", verticalAlign: "middle" }}
+        >
+
+          {icon}
+          </span>;
       })
     : 'N/A';
 
@@ -46,6 +67,4 @@ export default function ItemList({ game }) {
       </Link>
     </div>
   );
-
- 
 }

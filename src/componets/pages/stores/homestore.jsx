@@ -18,7 +18,6 @@ const homestore = create((set, get) => ({
     try {
       const url = `https://api.rawg.io/api/games?key=${API_Key}`;
       const res = await axios.get(url);
-       console.log(game.platforms?.map(p => p.platform?.slug));
       const games = res.data.results.map((game) => ({
         id: game.id,
         name: game.name,
@@ -49,7 +48,8 @@ const homestore = create((set, get) => ({
         released: game.released,
         genres: game.genres,         // <-- add this line
         platforms: game.platforms,
-      }));
+      }))
+      .slice(0, 8); // Limit to 9 results
       set({ searchResults: games, error: null });
     } catch (error) {
       set({ error: "Failed to fetch games" });

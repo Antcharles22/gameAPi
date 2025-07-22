@@ -58,12 +58,26 @@ a {
     transition: transform 0.3s ease-in-out; // Smooth scaling effect on hover
     text-align: center;
     text-decoration: none; // Remove underline from links
+    font-size: 1rem;
+    color: #ffffff; // or color: white;
+    border: 1px solid #4f4f4f; // Add a border to the item list
   } 
+
+  .item-list img {
+  width: auto;      // Set a fixed width for all images
+  height: 200px;     // Set a fixed height for all images
+  object-fit: cover; // Crop and scale the image to fill the box
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
 
   
   .search-results {
   display: grid; // Use grid layout for search results
-  grid-template-columns: repeat(3, 1fr); // 3 columns
+  grid-template-columns: repeat(4, 1fr); // 4 columns
+  grid-template-rows: auto; // Rows will adjust based on content
   gap: 20px; // Space between items
   padding: 20px; // Padding around the search results
   text-decoration: none; // Remove underline from links
@@ -247,3 +261,4 @@ a {
     color: #ccc; // Set placeholder text color
   }
  
+//item-list styles */

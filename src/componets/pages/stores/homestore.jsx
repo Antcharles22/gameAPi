@@ -15,46 +15,45 @@ const homestore = create((set, get) => ({
   },
 
   fetchCarouselGames: async () => {
-    try {
-      const url = `https://api.rawg.io/api/games?key=${API_Key}`;
-      const res = await axios.get(url);
-      const games = res.data.results.map((game) => ({
-        id: game.id,
-        name: game.name,
-        background_image: game.background_image,
-        rating: game.rating,
-        released: game.released,
-        genres: game.genres,         // <-- add this line
-        platforms: game.platforms,
-      }));
-      set({ carouselGames: games, error: null });
-    } catch (error) {
-      set({ error: "Failed to fetch games" });
-    }
-  },
-
-  fetchSearchResults: async () => {
-    try {
-      const query = get().query;
-      const url = query
-        ? `https://api.rawg.io/api/games?key=${API_Key}&search=${encodeURIComponent(query)}`
-        : `https://api.rawg.io/api/games?key=${API_Key}`;
-      const res = await axios.get(url);
-      const games = res.data.results.map((game) => ({
-        id: game.id,
-        name: game.name,
-        background_image: game.background_image,
-        rating: game.rating,
-        released: game.released,
-        genres: game.genres,         // <-- add this line
-        platforms: game.platforms,
-      }))
-      .slice(0, 8); // Limit to 9 results
-      set({ searchResults: games, error: null });
-    } catch (error) {
-      set({ error: "Failed to fetch games" });
-    }
+  try {
+    const url = `https://api.rawg.io/api/games?key=${API_Key}&ordering=-added&page_size=9`;
+    const res = await axios.get(url);
+    const games = res.data.results.map((game) => ({
+      id: game.id,
+      name: game.name,
+      background_image: game.background_image,
+      rating: game.rating,
+      released: game.released,
+      genres: game.genres,
+      platforms: game.platforms,
+    }));
+    set({ carouselGames: games, error: null });
+  } catch (error) {
+    set({ error: "Failed to fetch games" });
   }
+},
+
+fetchSearchResults: async () => {
+  try {
+    const query = get().query;
+    const url = query
+      ? `https://api.rawg.io/api/games?key=${API_Key}&search=${encodeURIComponent(query)}&page_size=8`
+      : `https://api.rawg.io/api/games?key=${API_Key}&ordering=-rating&page_size=8`;
+    const res = await axios.get(url);
+    const games = res.data.results.map((game) => ({
+      id: game.id,
+      name: game.name,
+      background_image: game.background_image,
+      rating: game.rating,
+      released: game.released,
+      genres: game.genres,
+      platforms: game.platforms,
+    }));
+    set({ searchResults: games, error: null });
+  } catch (error) {
+    set({ error: "Failed to fetch games" });
+  }
+}
 }));
 
 export default homestore;

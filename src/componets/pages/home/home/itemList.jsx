@@ -74,7 +74,6 @@ export default function ItemList({ game }) {
         <h3>{game.name}</h3>
         <img src={game.background_image} alt={game.name} />
         <p>Rating: {renderStars(game.rating)} <span style={{ fontSize: "0.9em" }}>({game.rating})</span></p>
-        <p>Released: {game.released}</p>
         <p>{genreNames}</p>
         <p>Play on: {platformIconsList}</p>
       </Link>

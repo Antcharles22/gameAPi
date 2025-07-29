@@ -3,6 +3,7 @@ import homestore from '../../stores/homestore';
 import Carousel from './carousel';
 import Nav from './Nav';
 import ItemList from './itemList';
+import TwitchStreams from './getStreamers';
 
 export default function Home() {
   const store = homestore();
@@ -17,9 +18,11 @@ export default function Home() {
       <div className='carousel'>
         <Carousel games={store.carouselGames} />
       </div>
+
       <div className='navbar'>
         <Nav />
       </div>
+
       <div className='search'>
         <h2>Search for Games</h2>
         <div className='search-bar'>
@@ -30,11 +33,16 @@ export default function Home() {
             onChange={(e) => store.setQuery(e)}
           />
         </div>
+
         <div className='search-results'>
           {store.searchResults.map(game => (
             <ItemList key={game.id} game={game}/>
           ))}
         </div>
+        <div>
+          <TwitchStreams />
+        </div>
+
       </div>
     </div>
   );

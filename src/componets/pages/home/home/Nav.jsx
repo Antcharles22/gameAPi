@@ -12,7 +12,7 @@ export default function Nav() {
                     <li><Link to="/search"><FaSearch /> Search</Link></li>
                     <li><Link to="/about"><FaInfoCircle /> About</Link></li>
                     <li><Link to="/contact"><FaEnvelope /> Contact</Link></li>
-                    <li><Link to="/twitch"><FaTwitch /> Twitch</Link></li>
+                    <li><a href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer"><FaTwitch /> Twitch</a></li>
                 </ul>
             </div>
         </div>

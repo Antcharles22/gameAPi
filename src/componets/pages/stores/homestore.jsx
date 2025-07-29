@@ -3,6 +3,8 @@ import { create } from "zustand";
 
 const API_Key = 'b75a02282f2b4b77b72eab9bbcd88ce2';
 
+let debounceTimeout;
+
 const homestore = create((set, get) => ({
   carouselGames: [],
   searchResults: [],
@@ -10,9 +12,16 @@ const homestore = create((set, get) => ({
   error: null,
 
   setQuery: (e) => {
-    set({ query: e.target.value });
-    get().fetchSearchResults();
+    const value = e.target.value;
+    set({ query: value });
+
+    // Debounce search
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      get().fetchSearchResults();
+    }, 320); // 320ms debounce delay
   },
+
 
   fetchCarouselGames: async () => {
   try {
@@ -54,7 +63,35 @@ fetchSearchResults: async () => {
     set({ error: "Failed to fetch games" });
   }
 }
+
 }));
+
+
+  export const getTwitchToken = async () => {
+  const res = await axios.post('https://id.twitch.tv/oauth2/token', null, {
+    params: {
+      client_id: 'blx0jcj934ddhtx33o3xlecoilwsly',
+      client_secret: 'v8wbpolgagtaws17yrqjitsl9pcejm',
+      grant_type: 'client_credentials'
+    }
+  });
+  return res.data.access_token;
+};
+export const getTopTwitchStreams = async (token) => {
+  const res = await axios.get('https://api.twitch.tv/helix/streams', {
+    headers: {
+      'Client-ID': 'blx0jcj934ddhtx33o3xlecoilwsly',
+      'Authorization': `Bearer ${token}`
+    },
+    params: {
+      first: 12, // Number of streams to fetch
+      language: 'en' // Optional: filter by language
+    }
+  });
+  return res.data.data; // Each stream has a thumbnail_url
+};
+
+
 
 export default homestore;
 

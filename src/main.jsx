@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Routes, BrowserRouter, Route } from 'react-router-dom'
 import Home  from './componets/pages/home/home/Home.jsx'
-import Gameinfo  from './componets/pages/gameinfo.jsx'
+import Gameinfo  from './componets/pages/gameInfo/gameinfo.jsx'
 import './style.scss'
 
 
@@ -11,7 +11,7 @@ root.render(
   <BrowserRouter>
   <Routes>
     <Route index element={<Home />} />
-    <Route path="/" element={<Gameinfo />} />
+    <Route path="/game/:id" element={<Gameinfo />} />
    </Routes> 
   </BrowserRouter>,
 )

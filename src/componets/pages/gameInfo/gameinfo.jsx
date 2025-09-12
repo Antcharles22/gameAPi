@@ -2,6 +2,7 @@ import React from "react";
 import showStore from "../stores/gameinfostore";
 import { useParams } from "react-router-dom";
 
+
 export default function GameInfo() {
     const store = showStore();
     const params = useParams();
@@ -13,10 +14,10 @@ export default function GameInfo() {
     const game = store.game;
 
     return (
-        <div>
+        <div className="GameInfo">
             <h2>About the Game</h2>
             {game ? (
-                <div>
+                <div className="game-details">
                     <h3>{game.name}</h3>
                     <img src={game.background_image} alt={game.name} style={{ width: "400px" }} />
                     <p><strong>Released:</strong> {game.released}</p>

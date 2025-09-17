@@ -20,12 +20,14 @@ export default function GameInfo() {
                 <div className="game-details">
                     <h3>{game.name}</h3>
                     <img src={game.background_image} alt={game.name} style={{ width: "400px" }} />
+                    <article className="game-article">
                     <p><strong>Released:</strong> {game.released}</p>
                     <p><strong>Rating:</strong> {game.rating}</p>
                     <p><strong>Genres:</strong> {game.genres && game.genres.map(g => g.name).join(", ")}</p>
                     <p><strong>Platforms:</strong> {game.platforms && game.platforms.map(p => p.platform.name).join(", ")}</p>
                     <p><strong>Publishers:</strong> {game.publishers && game.publishers.map(p => p.name).join(", ")}</p>
                     <p><strong>Description:</strong> {game.description_raw}</p>
+                    </article>
                 </div>
             ) : (
                 <p>Loading...</p>

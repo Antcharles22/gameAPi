@@ -294,11 +294,27 @@ a {
 
 .GameInfo {
   display: flex;
+  flex-direction: column;      // Stack children vertically
+  justify-content: center;     // Center vertically
+  align-items: center;         // Center horizontally
+  min-height: 100vh;           // Full viewport height
 }
 
 .game-details {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  ;
+  justify-content: center; // Center horizontally
+  align-items: center;     // Center vertically
+  min-height: 100vh;
+  flex-direction: column; // Stack children vertically
+  
+
+
+  .game-article {
+    max-width: 800px; // Limit the width of the article for better readability
+    padding: 20px; // Add padding around the text
+    background-color: #444; // Set a background color for contrast
+    border-radius: 5px; // Add rounded corners
+    margin-top: 20px; // Space between image and text
+    line-height: 1.6; // Improve line spacing for readability
+  }
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { create } from "zustand";
 
 
-const API_Key = 'b75a02282f2b4b77b72eab9bbcd88ce2';
+const API_Key = '64a66ea3c1624447bfeb3bcd7f094e6a';
 
 const showStore = create((set) => ({
     game: null,
@@ -14,6 +14,8 @@ const showStore = create((set) => ({
         
     }
 }));
+
+
 
 export default showStore;
 

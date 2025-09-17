@@ -1,7 +1,7 @@
 import axios from "axios";
 import { create } from "zustand";
 
-const API_Key = 'b75a02282f2b4b77b72eab9bbcd88ce2';
+const API_Key = '64a66ea3c1624447bfeb3bcd7f094e6a';
 
 let debounceTimeout;
 
@@ -25,7 +25,7 @@ const homestore = create((set, get) => ({
 
   fetchCarouselGames: async () => {
   try {
-    const url = `https://api.rawg.io/api/games?key=${API_Key}&ordering=-added&page_size=9`;
+    const url = `http://localhost:4000/api/games?ordering=-added&page_size=9`;
     const res = await axios.get(url);
     const games = res.data.results.map((game) => ({
       id: game.id,
@@ -46,8 +46,8 @@ fetchSearchResults: async () => {
   try {
     const query = get().query;
     const url = query
-      ? `https://api.rawg.io/api/games?key=${API_Key}&search=${encodeURIComponent(query)}&page_size=8`
-      : `https://api.rawg.io/api/games?key=${API_Key}&ordering=-rating&page_size=8`;
+    ? `http://localhost:4000/api/games?search=${encodeURIComponent(query)}&page_size=8`
+    : `http://localhost:4000/api/games?ordering=-rating&page_size=8`;
     const res = await axios.get(url);
     const games = res.data.results.map((game) => ({
       id: game.id,

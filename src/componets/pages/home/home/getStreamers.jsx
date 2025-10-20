@@ -17,7 +17,7 @@ export default function TwitchStreams() {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
+    <div className="twitch-streams" style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginLeft: "50px" }}>
       {streams.map(stream => (
         <div
           key={stream.id}

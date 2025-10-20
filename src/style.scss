@@ -317,4 +317,14 @@ a {
     margin-top: 20px; // Space between image and text
     line-height: 1.6; // Improve line spacing for readability
   }
+
+
+  .twitch-streams {
+    display: flex; // Use flexbox for layout
+    flex-wrap: wrap; // Allow items to wrap to the next line
+    gap: 16px; // Space between items
+    justify-content: center; // Center items horizontally
+    margin-top: 20px; // Space above the streamers section
+  }
 }
+ 

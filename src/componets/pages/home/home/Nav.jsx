@@ -15,6 +15,10 @@ export default function Nav() {
                     <li><a href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer"><FaTwitch /> Twitch</a></li>
                 </ul>
             </div>
+            <div className="nav-footer">
+                <button> Join for free or log in</button>
+                <p>&copy; 2025 QuestLog. All rights reserved.</p>
+            </div>
         </div>
     )
 }

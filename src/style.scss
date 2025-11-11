@@ -10,7 +10,7 @@ body {
   background-color: rgb(30, 29, 29);
   color: white;
   font-family: 'Arial', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -23,7 +23,7 @@ a {
 .home {
   
   .search {
-    display: flex;
+  display: flex;
   flex-direction: column; // Stack children vertically
   align-items: center;
   justify-content: flex-start; // Align to the top
@@ -31,9 +31,13 @@ a {
   margin-left: 200px; // Adjust margin to account for the fixed navbar
   } 
   
+  h3 {
+    color: white;
+    text-align: center;
+    margin: 5px; // Adjust spacing between the title and image
+  }
+
   img {
-    width: 100%; // Make the image fill the container's width
-    max-width: 300px; // Ensure the image does not exceed the container's width
     height: auto; // Maintain aspect ratio
     object-fit: cover; // Ensure the image covers the container without distortion
     transition: transform 0.3s ease-in-out; // Smooth scaling effect
@@ -42,7 +46,6 @@ a {
   .search-results {
     display: flex;
     flex-direction: column;
-    
     gap: 20px; // Add space between items
     padding: 20px; // Add padding around the search results
   }
@@ -53,9 +56,10 @@ a {
     align-items: center; // Center items horizontally
     background-color: #444; // Set a background color for contrast
     border-radius: 5px; // Add rounded corners
-    width: 100%; // Make it responsive to the container's width
-    max-width: 300px; // Limit the maximum width of each item
     transition: transform 0.3s ease-in-out; // Smooth scaling effect on hover
+    max-width: 250px; // Set a max width for the item list
+    max-height: 250;
+    padding: 10px; // Add padding inside the item list
     text-align: center;
     text-decoration: none; // Remove underline from links
     font-size: 1rem;
@@ -65,10 +69,8 @@ a {
 
   .item-list img {
   width: auto;      // Set a fixed width for all images
-  height: 200px;     // Set a fixed height for all images
+  height: 100px;     // Set a fixed height for all images
   object-fit: cover; // Crop and scale the image to fill the box
-  padding-left: 1rem;
-  padding-right: 1rem;
   border-radius: 5px;
   margin-bottom: 10px;
   }
@@ -145,10 +147,10 @@ a {
     width: 100%; // Make the image fill the container's width
     height: 300px; // Maintain aspect ratio
     object-fit: cover; // Ensure the image covers the container without distortion
-    transition: transform 0.3s ease-in-out; // Smooth scaling effect
+    transition: transform 0.2s ease-in-out; // Smooth scaling effect
     
     &:hover {
-      transform: scale(1.1); // Scale the image to 110% on hover
+      transform: scale(1.05); // Scale the image to 110% on hover
     }
   }
 
@@ -187,7 +189,7 @@ a {
 
   .nav-links {
   margin-top: 100px;
-  width: 100%;
+  
  
 }
 
@@ -223,11 +225,11 @@ a {
   transition: background-color 0.3s ease;
   width: 100%; // Fill the nav bar width
   text-align: left; // Left-align text
-}
+ }
   
   .nav a:hover {
     background-color: #555; // Change background color on hover
-    width: 100%; // Make the link fill the width of the nav
+    width: 114%; // Make the link fill the width of the nav
   }
 
   .nav a svg {
@@ -235,7 +237,28 @@ a {
   padding-left: 2px;  // Optional: space on the left
   font-size: 1.4em;   // Optional: make icons a bit larger
   vertical-align: middle;
-}
+ }
+
+   .nav-footer {
+    margin-top: auto; // Push footer to the bottom
+    padding: 20px 15px 0px 15px;
+    text-align: center;
+
+    p {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin: 10px 0 0 0;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #a75757;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  }
 
   /* Search bar styles */
   .search-bar {
@@ -322,9 +345,10 @@ a {
   .twitch-streams {
     display: flex; // Use flexbox for layout
     flex-wrap: wrap; // Allow items to wrap to the next line
-    gap: 16px; // Space between items
-    justify-content: center; // Center items horizontally
+    gap: 40px; // Space between items
+    justify-content: r; // Center items horizontally
     margin-top: 20px; // Space above the streamers section
+    margin-left: 200px; // Space to the left of the streamers section
   }
 }
  

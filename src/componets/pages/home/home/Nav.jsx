@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaSearch, FaInfoCircle, FaEnvelope, FaTwitch } from "react-icons/fa";
-
+import logo from '../../../../png/logo.png';
 export default function Nav() {
     return (
         <div className="nav">
-            <h1>QuestLog</h1>
+            <div className="nav-header">
+                <img src={logo} alt="Logo"/>
+            </div>
             <div className="nav-links">
                 <ul>
                     <li><Link to="/"><FaHome /> Home</Link></li>
